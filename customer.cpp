@@ -1,8 +1,7 @@
-//Name: Alex Bowman   11.7.2013
+//Name: Alex Bowman and Tyler Hembrock   11.19.2013
 //CS53 section F
-//Description: The implementation of OOP classes with a customers and a
-//             business which takes values possessed by the customer and
-//             and buys various things.
+//Description: Simulation of competing companies of Comic Book Guy and Moe.
+// The program implements multiple classes and interactions between them.
 //Customer functions File
 
 
@@ -10,9 +9,10 @@
 
 Customer::Customer()
 {
-  m_cust_name = "";
+  //m_cust_name = "";
   m_purchase_ammount = 0;
   m_spending_money = (rand()%245 +5);
+  m_satisfaction = (rand()%100+1);
 }
 
 Customer::Customer(float money, string name)
@@ -22,18 +22,25 @@ Customer::Customer(float money, string name)
   m_purchase_ammount = 0;
 }
 
-bool Customer::purchase(string itemPurchased)
+bool Customer::buy_something()
 {
-  bool enoughMoney = false;
-  
-  if(m_spending_money >= 40)
-  {
-    enoughMoney = true;
-    m_purchases[m_purchase_ammount] = itemPurchased;
-    m_purchase_ammount++;
-  }
-  return enoughMoney;
+  //Look back at hw to add more functionality, because
+  //I'm not sure at this point in time what all to add.
+  return true;
 }
+
+// bool Customer::purchase(string itemPurchased)
+// {
+//   bool enoughMoney = false;
+  
+//   if(m_spending_money >= 40)
+//   {
+//     enoughMoney = true;
+//     m_product[m_purchase_ammount] = itemPurchased;
+//     m_purchase_ammount++;
+//   }
+//   return enoughMoney;
+// }
 
 void Customer::changeMoney(const int money)
 {

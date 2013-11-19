@@ -1,8 +1,7 @@
-//Name: Alex Bowman   11.7.2013
+//Name: Alex Bowman and Tyler Hembrock   11.19.2013
 //CS53 section F
-//Description: The implementation of OOP classes with a customers and a
-//             business which takes values possessed by the customer and
-//             and buys various things.
+//Description: Simulation of competing companies of Comic Book Guy and Moe.
+// The program implements multiple classes and interactions between them.
 //Business functions File
 
 #include "business.h"
@@ -53,9 +52,9 @@ void Business::printBiz()
   return;
 }
 
-void Business::enterBiz(const Customer custName)
+void Business::addCustomer()
 {
-  m_cust_objects[m_num_cust] = custName;
+  m_cust_objects[m_num_cust] = custName; //implement calling object
   m_num_cust++;
   return;
 }
