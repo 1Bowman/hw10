@@ -15,7 +15,7 @@ using namespace std;
 int main()
 {
   srand(time(NULL));
-  // Customer c1(10, "Clayton Price");
+  // Customer c1(10, "Price");
   // Customer c2(400, "Eric Barnes"); 
   // Customer c3;
   // Business b1;
