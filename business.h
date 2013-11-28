@@ -19,14 +19,13 @@ using namespace std;
 class Business
 {
   private:
-    //string m_business_name;
-    // float m_register_money;
-    // short m_items_ammnt;
-    // short m_num_cust;
-    // string m_items_sold[10];
-    // Customer m_cust_objects[10];
-
-    Product Product[10] //Probs doing this wrong
+    string m_business_name;
+    float m_register_money;
+    short m_items_ammnt;
+    short m_num_cust;
+    string m_items_sold[10];
+    Customer m_cust_objects[10];
+    Product Product[10];
 
   public:
     //Pre: n/a
@@ -73,6 +72,16 @@ class Business
     //Function: Copies array of customers in the business to the array of 
     //customers in this function.
     void customers_leave();
+    
+    //Pre: None.
+    //Post: allows the m_items_sold array to be accessible.
+    //Function: Allows access to the m_items_sold array. Accessor.
+    void getProducts();
+    
+    //Pre: None.
+    //Post: The amount in the register is incremented by the money passed in.
+    //Function: Adds to the register the amount passed in.
+    void add_to_register(const int money);
 
 };
 #endif

@@ -59,17 +59,34 @@ void Business::addCustomer()
   return;
 }
 
-void Business::make_a_sale()
+void Business::sell_stuff()
 {
   //assigns an item for each customer in the business to purchase
-  int randItem;
+  //Uses the buy_something customer function.
+  static int randItem;
   string holder;
   
   for(int i = 0; i < m_num_cust; i++)
   {
-    randItem = rand()%7;
-    if(m_cust_objects[i].purchase(m_items_sold[randItem]))
-      m_cust_objects[i].changeMoney(-40);
+    //randItem = rand()%7;   Put in buy_something() function
+    //if(m_cust_objects[i].purchase(m_items_sold[randItem]))
+    //***** Changed to this if statement *******
+    //***** instead of changing customers money which is done with the 
+    //buy_something() function. I added a mutator to add to the register.
+    if(m_cust_objects[i].buy_something())
+      //m_cust_objects[i].changeMoney(-Product.pPrice);
+      add_to_register(Product.pPrice);
   }  
+  return;
+}
+
+void Business::getProducts()
+{
+  return m_items_sold[randItem];
+}
+
+void Business::add_to_register(const int money)
+{
+  m_register_money += money;
   return;
 }

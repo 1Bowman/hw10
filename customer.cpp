@@ -24,9 +24,36 @@ Customer::Customer(float money, string name)
 
 bool Customer::buy_something()
 {
+  bool wantBuy, willBuy;
+  
+  string item;
+  rand()%2; //Rand either 1 or 0. True or false.
+  if(wantBuy)
+  {
+    randItem = rand()%7;
+    item = getProducts();
+    if(Product.pPrice < m_spending_money && m_purchase_amount < PURCHASE_MAX)
+    {
+      m_product[m_purchase_amount] = item;
+      m_spending_money -= Product.pPrice;
+      m_satisfaction += 15;
+      willBuy = true;
+    } 
+    else
+    {
+      m_satisfaction -= 10;
+      willBuy = false;
+    }
+  }
+  else
+  {
+    m_satisfaction -= 10;
+    willBuy = false;
+  }  
+  //*******   Fixed   *********
   //Look back at hw to add more functionality, because
   //I'm not sure at this point in time what all to add.
-  return true;
+  return willBuy;
 }
 
 // bool Customer::purchase(string itemPurchased)
