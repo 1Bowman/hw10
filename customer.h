@@ -14,11 +14,12 @@
 using namespace std;
 
 const int PURCHASE_MAX = 20;
+static int randItem;
 
 class Customer
 {
   private:
-    short m_purchase_ammount;
+    short m_purchase_amount;
     string m_product[PURCHASE_MAX]; //m_purchase_amount in case I forgot to change to the new name
     int m_satisfaction;
     bool m_inclination; 
@@ -56,12 +57,12 @@ class Customer
     //Pre:
     //Post:
     //Function:
-    void throw();
+    //void throw();  Not here yet
 
     //Pre:
     //Post:
     //Function:
-    void rob();
+    //void rob();    Not here yet
 
     //Pre: n/a
     //Post: sets getMoney to m_spending_money
@@ -77,6 +78,11 @@ class Customer
     //Post: returns an added amount of money to m_spending_money
     //Function:  adds whatever is passed into the function to m_spending_money
     void changeMoney(const int money);
+    
+    //Pre:
+    //Post:
+    //Function:
+    void printCust();
 
     //Pre: must be initialized by a value of customer
     //Post: outputs a template of the customers name, how much money they

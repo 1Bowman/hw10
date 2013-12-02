@@ -52,7 +52,7 @@ void Business::printBiz()
   return;
 }
 
-void Business::addCustomer()
+void Business::addCustomer(Customer custName)
 {
   m_cust_objects[m_num_cust] = custName; //implement calling object
   m_num_cust++;
@@ -63,19 +63,29 @@ void Business::sell_stuff()
 {
   //assigns an item for each customer in the business to purchase
   //Uses the buy_something customer function.
-  static int randItem;
-  string holder;
   
   for(int i = 0; i < m_num_cust; i++)
   {
+  
+               //****Took out these*****
     //randItem = rand()%7;   Put in buy_something() function
     //if(m_cust_objects[i].purchase(m_items_sold[randItem]))
     //***** Changed to this if statement *******
     //***** instead of changing customers money which is done with the 
     //buy_something() function. I added a mutator to add to the register.
-    if(m_cust_objects[i].buy_something())
-      //m_cust_objects[i].changeMoney(-Product.pPrice);
-      add_to_register(Product.pPrice);
+      
+      
+      
+      
+      /*  ****** Creates errors until products are declared *****
+      Still need next two lines. Need product declaration
+      from lists first.
+      if(m_cust_objects[i].buy_something())
+      {
+        m_cust_objects[i].changeMoney(-Product.pPrice);
+        add_to_register(Product.pPrice);   still need
+      }
+      */
   }  
   return;
 }

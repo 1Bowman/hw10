@@ -52,7 +52,7 @@ class Business
     //Post: places a customer in the customer array and increases the ammount
     // of customers by 1
     //Function: puts customers in the business
-    void addCustomer();
+    void addCustomer(Customer custName);
     
     //Pre: must be ran by a business
     //Post: if the user has more than $40, then a random object is set to the

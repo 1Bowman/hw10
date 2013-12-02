@@ -10,7 +10,7 @@
 Customer::Customer()
 {
   //m_cust_name = "";
-  m_purchase_ammount = 0;
+  m_purchase_amount = 0;
   m_spending_money = (rand()%245 +5);
   m_satisfaction = (rand()%100+1);
 }
@@ -19,15 +19,15 @@ Customer::Customer(float money, string name)
 {
   m_spending_money = money;
   m_cust_name = name;
-  m_purchase_ammount = 0;
+  m_purchase_amount = 0;
 }
 
-bool Customer::buy_something()
+bool Customer::buy_something(Business b1)
 {
   bool wantBuy, willBuy;
   
   string item;
-  rand()%2; //Rand either 1 or 0. True or false.
+  wantBuy = rand()%2; //Rand either 1 or 0. True or false.
   if(wantBuy)
   {
     randItem = rand()%7;
@@ -79,12 +79,12 @@ void Customer::printCust()
 {
   cout << m_cust_name << " has $" << m_spending_money << " and purchases ";
   
-  if(m_purchase_ammount > 0)
+  if(m_purchase_amount > 0)
   {
-    for(int i = 0; i < m_purchase_ammount; i++)
+    for(int i = 0; i < m_purchase_amount; i++)
     {
-      cout << m_purchases[i];
-      if(m_purchase_ammount -1 == i)
+      cout << m_product[i];
+      if(m_purchase_amount -1 == i)
         cout << ".";
       else
         cout << ", ";
