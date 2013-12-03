@@ -22,7 +22,7 @@ Customer::Customer(float money, string name)
   m_purchase_amount = 0;
 }
 
-bool Customer::buy_something(Business b1)
+bool Customer::buy_something(Product p1)
 {
   bool wantBuy, willBuy;
   
@@ -30,12 +30,11 @@ bool Customer::buy_something(Business b1)
   wantBuy = rand()%2; //Rand either 1 or 0. True or false.
   if(wantBuy)
   {
-    randItem = rand()%7;
     item = getProducts();
-    if(Product.pPrice < m_spending_money && m_purchase_amount < PURCHASE_MAX)
+    if(p1.pPrice < m_spending_money && m_purchase_amount < PURCHASE_MAX)
     {
       m_product[m_purchase_amount] = item;
-      m_spending_money -= Product.pPrice;
+      m_spending_money -= p1.pPrice;
       m_satisfaction += 15;
       willBuy = true;
     } 

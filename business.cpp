@@ -67,6 +67,7 @@ void Business::sell_stuff()
   for(int i = 0; i < m_num_cust; i++)
   {
   
+    
                //****Took out these*****
     //randItem = rand()%7;   Put in buy_something() function
     //if(m_cust_objects[i].purchase(m_items_sold[randItem]))
@@ -77,22 +78,23 @@ void Business::sell_stuff()
       
       
       
-      /*  ****** Creates errors until products are declared *****
-      Still need next two lines. Need product declaration
-      from lists first.
-      if(m_cust_objects[i].buy_something())
+       // ****** Creates errors until products are declared *****
+      //Still need next two lines. Need product declaration
+      //from lists first.s
+
+/*      if(m_cust_objects[i].buy_something())
       {
         m_cust_objects[i].changeMoney(-Product.pPrice);
-        add_to_register(Product.pPrice);   still need
-      }
-      */
+        add_to_register(Product.pPrice);   //still need
+      }*/
+      
   }  
   return;
 }
 
-void Business::getProducts()
+int Business::getProducts()
 {
-  return m_items_sold[randItem];
+  return m_items_sold[rand()%10]; //10 needs to be changed
 }
 
 void Business::add_to_register(const int money)

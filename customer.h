@@ -14,7 +14,7 @@
 using namespace std;
 
 const int PURCHASE_MAX = 20;
-static int randItem;
+//static int randItem;
 
 class Customer
 {
@@ -45,7 +45,7 @@ class Customer
     //Pre:
     //Post:
     //Function:
-    bool buy_something();
+    bool buy_something(Product p1);
 
     //Pre: must take in an item purchased from 'items.txt'
     //Post: if spending money is more than $40, then it sets the defined 

@@ -25,7 +25,7 @@ class Business
     short m_num_cust;
     string m_items_sold[10];
     Customer m_cust_objects[10];
-    Product Product[10];
+    Product product[10];
 
   public:
     //Pre: n/a
@@ -76,7 +76,7 @@ class Business
     //Pre: None.
     //Post: allows the m_items_sold array to be accessible.
     //Function: Allows access to the m_items_sold array. Accessor.
-    void getProducts();
+    int getProducts();
     
     //Pre: None.
     //Post: The amount in the register is incremented by the money passed in.
