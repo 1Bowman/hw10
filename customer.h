@@ -58,12 +58,17 @@ class Customer
     //Pre:
     //Post:
     //Function:
-    //void throw();  Not here yet
+    bool throws();
+    
+    //Pre:
+    //post:
+    //Function:
+    bool changeSat();
 
     //Pre:
     //Post:
     //Function:
-    //void rob();    Not here yet
+    void rob();
 
     //Pre: n/a
     //Post: sets getMoney to m_spending_money
@@ -83,7 +88,7 @@ class Customer
     //Pre:
     //Post:
     //Function:
-    void printCust();
+    friend ostream &operator <<(ostream & out, Customer & s);
 
     //Pre: must be initialized by a value of customer
     //Post: outputs a template of the customers name, how much money they

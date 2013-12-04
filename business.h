@@ -14,7 +14,8 @@
 #include "product.h"
 
 using namespace std;
-
+const int MAX_CUST = 20;
+const int MAX_ITEMS = 10;
 
 class Business
 {
@@ -23,8 +24,8 @@ class Business
     float m_register_money;
     short m_items_ammnt;
     short m_num_cust;
-    product m_items_sold[10];
-    Customer m_cust_objects[10];
+    product m_items_sold[MAX_ITEMS];
+    Customer m_cust_objects[MAX_CUST];
     //product product[10];
 
   public:
@@ -82,6 +83,7 @@ class Business
     //Post: The amount in the register is incremented by the money passed in.
     //Function: Adds to the register the amount passed in.
     void add_to_register(const int money);
+
 
 };
 #endif

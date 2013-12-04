@@ -25,7 +25,7 @@ int main()
   // Business b1("Moe's Bar", 4000, finMo);
   // finMo.close();
   
-  // fstream finComic;
+  // ifstream finComic;
   // finComic.open("comicitems.txt");
   // Business b2("Comic Book Guy's Store", 4000, finComic);
   // b2.enterBiz(c1);

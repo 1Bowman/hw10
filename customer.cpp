@@ -38,6 +38,10 @@ bool Customer::buy_something(product item)
       m_spending_money -= item.pPrice;
       m_satisfaction += 15;
       willBuy = true;
+      cout << m_cust_name << " purchased a " 
+      << m_product[m_purchase_amount - 1].pName
+      << " for $" << m_product[m_purchase_amount - 1].pPrice << endl;
+      
     } 
     else
     {
@@ -54,6 +58,30 @@ bool Customer::buy_something(product item)
   //Look back at hw to add more functionality, because
   //I'm not sure at this point in time what all to add.
   return willBuy;
+}
+
+bool Customer::throws()
+{
+  bool success;
+  if(m_purchase_amount > 0)
+  {
+    success = true;
+  }
+  else
+  {
+    success = false
+  }
+  return success;
+  
+}
+bool Customer::robs()
+{
+  bool success;
+}
+
+void Customer::changeSat()
+{
+
 }
 
 // bool Customer::purchase(string itemPurchased)
@@ -75,24 +103,25 @@ void Customer::changeMoney(const int money)
   return;
 }
 
-void Customer::printCust()
+
+ostream & operator <<(ostream & out, Customer & s)
 {
-  cout << m_cust_name << " has $" << m_spending_money << " and purchases ";
+  out << s.m_cust_name << " has $" << s.m_spending_money << " and purchases ";
   
-  if(m_purchase_amount > 0)
+  if(s.m_purchase_amount > 0)
   {
-    for(int i = 0; i < m_purchase_amount; i++)
+    for(int i = 0; i < s.m_purchase_amount; i++)
     {
-      cout << m_product[i].pName;
-      if(m_purchase_amount -1 == i)
-        cout << ".";
+      out << s.m_product[i].pName;
+      if(s.m_purchase_amount -1 == i)
+        out << ".";
       else
-        cout << ", ";
+        out << ", ";
     }
   }
   else
-   cout << "nothing.";
-    
-  cout << endl;
-  return;
+    out << "nothing.";
+  out << endl;
+  return out;
+
 }

@@ -41,19 +41,44 @@ void Business::printBiz()
   
   cout << "Customers\n---------" << endl;
   for(int i = 0; i < m_num_cust; i++)
-    m_cust_objects[i].printCust();
+    cout << m_cust_objects[i].m_cust_name << " has $"
+    << m_cust_objects[i].m_spending_money << " with Happiness "
+    << m_cust_objects[i].m_satisfaction;
+    if(m_cust_objects[i].m_purchase_amount > 0)
+    {
+      cout << " and has a ";
+      for(int j = 0; j < m_cust_objects[i].m_purchase_amount; j++)
+      {
+        cout << m_cust_objects[i].m_product[j] << ",";
+      }
+    }
   
-  cout << endl << "Items on the shelf\n------------------" << endl;
-  for(int i = 0; i < m_items_ammnt; i++)
-    cout << m_items_sold[i].pName << endl;
+  //cout << endl << "Items on the shelf\n------------------" << endl;
+  //for(int i = 0; i < m_items_ammnt; i++)
+  // cout << m_items_sold[i].pName << endl;
   
   return;
 }
 
+void Business::customers_leave()
+{
+
+}
+
 void Business::addCustomer(Customer custName)
 {
-  m_cust_objects[m_num_cust] = custName; //implement calling object
+  for(int i=0; i < MAX_CUST; i++)
+  {
+  ifstream fin;
+  string name;
+  int num;
+  fin.open("people.txt");
+  m_cust_objects[m_num_cust] = name; //implement calling object
+  getline(fin, name, ',');
+  fin >> num;
+  
   m_num_cust++;
+  }
   return;
 }
 
