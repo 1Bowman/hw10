@@ -10,6 +10,7 @@
 #include <cstdlib>
 #include <ctime>
 #include <string>
+#include "product.h"
 
 using namespace std;
 
@@ -20,7 +21,7 @@ class Customer
 {
   private:
     short m_purchase_amount;
-    string m_product[PURCHASE_MAX]; //m_purchase_amount in case I forgot to change to the new name
+    product m_product[PURCHASE_MAX]; //m_purchase_amount in case I forgot to change to the new name
     int m_satisfaction;
     bool m_inclination; 
     //unspecified member variables, but used in last program
@@ -45,7 +46,7 @@ class Customer
     //Pre:
     //Post:
     //Function:
-    bool buy_something(Product p1);
+    bool buy_something(product item);
 
     //Pre: must take in an item purchased from 'items.txt'
     //Post: if spending money is more than $40, then it sets the defined 

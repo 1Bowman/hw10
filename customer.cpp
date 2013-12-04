@@ -22,19 +22,20 @@ Customer::Customer(float money, string name)
   m_purchase_amount = 0;
 }
 
-bool Customer::buy_something(Product p1)
+bool Customer::buy_something(product item)
 {
   bool wantBuy, willBuy;
   
-  string item;
   wantBuy = rand()%2; //Rand either 1 or 0. True or false.
   if(wantBuy)
   {
-    item = getProducts();
-    if(p1.pPrice < m_spending_money && m_purchase_amount < PURCHASE_MAX)
+    
+    if(m_product[m_purchase_amount].pPrice < m_spending_money
+       && m_purchase_amount < PURCHASE_MAX)
     {
-      m_product[m_purchase_amount] = item;
-      m_spending_money -= p1.pPrice;
+      m_product[m_purchase_amount].pName = item.pName;
+      m_purchase_amount ++;
+      m_spending_money -= item.pPrice;
       m_satisfaction += 15;
       willBuy = true;
     } 
@@ -82,7 +83,7 @@ void Customer::printCust()
   {
     for(int i = 0; i < m_purchase_amount; i++)
     {
-      cout << m_product[i];
+      cout << m_product[i].pName;
       if(m_purchase_amount -1 == i)
         cout << ".";
       else

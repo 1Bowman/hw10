@@ -12,16 +12,22 @@
 
 using namespace std;
 
+
 int main()
 {
   srand(time(NULL));
   // Customer c1(10, "Price");
   // Customer c2(400, "Eric Barnes"); 
   // Customer c3;
-  // Business b1;
-  // Business b2("MichaelSoft inc.", 4000);
+    
+  // ifstream finMo;
+  // finMo.open("moeitems.txt");
+  // Business b1("Moe's Bar", 4000, finMo);
+  // finMo.close();
   
-  
+  // fstream finComic;
+  // finComic.open("comicitems.txt");
+  // Business b2("Comic Book Guy's Store", 4000, finComic);
   // b2.enterBiz(c1);
   // b2.enterBiz(c2);
   // b2.enterBiz(c3);

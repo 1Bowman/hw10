@@ -23,9 +23,9 @@ class Business
     float m_register_money;
     short m_items_ammnt;
     short m_num_cust;
-    string m_items_sold[10];
+    product m_items_sold[10];
     Customer m_cust_objects[10];
-    Product product[10];
+    //product product[10];
 
   public:
     //Pre: n/a
@@ -39,7 +39,7 @@ class Business
     // input values were.  It also sets the number of customers inside the 
     //business to zero and reads in the items in items.txt to m_items_sold[]
     //Function: Sets bName and regMoney to what the program defines
-    Business(const string bName, const float regMoney);
+    Business(const string bName, const float regMoney, ifstream & fin);
     
     //Pre: None, because blank parameters are accepted
     //Post: Outputs name of the business, the name of each customer, their
@@ -76,7 +76,7 @@ class Business
     //Pre: None.
     //Post: allows the m_items_sold array to be accessible.
     //Function: Allows access to the m_items_sold array. Accessor.
-    int getProducts();
+    product getProducts();
     
     //Pre: None.
     //Post: The amount in the register is incremented by the money passed in.

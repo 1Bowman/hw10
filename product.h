@@ -3,12 +3,12 @@
 //Description: Simulation of competing companies of Comic Book Guy and Moe.
 // The program implements multiple classes and interactions between them.
 //Product struct file
-#include "business.h"
 #include "customer.h"
 #ifndef PRODUCT_H
 #define PRODUCT_H
+using namespace std;
 
-struct Product
+struct product
 {
 	string pName;
 	float pPrice;
@@ -16,3 +16,4 @@ struct Product
 
 
 #endif
+

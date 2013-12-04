@@ -5,7 +5,6 @@
 //Business functions File
 
 #include "business.h"
-#include "customer.h"
 
 Business::Business() //Default constructor
 {
@@ -15,26 +14,25 @@ Business::Business() //Default constructor
   m_num_cust = 0;
 }
 
-Business::Business(const string bName, const float regMoney)
+Business::Business(const string bName, const float regMoney, ifstream & fin)
 {
-  ifstream fin;
   
-  // int count = 0;
-  string holder;
+  int count = 1;
+  int price;
+  string name;
   m_business_name = bName;
   m_register_money = regMoney;
   m_num_cust = 0;
 
-  fin.open("items.txt");
-
   
-  while(fin >> holder)
+  while(fin >> price)
   {
-    m_items_sold[m_items_ammnt] = holder;
-    m_items_ammnt++;
+    m_items_sold[m_items_ammnt].pPrice = price;
+    getline(fin, name, '\n');
+    m_items_sold[m_items_ammnt].pName = name;
+    m_items_ammnt ++;
   }
   
-  fin.close();
 }
 
 void Business::printBiz()
@@ -47,7 +45,7 @@ void Business::printBiz()
   
   cout << endl << "Items on the shelf\n------------------" << endl;
   for(int i = 0; i < m_items_ammnt; i++)
-    cout << m_items_sold[i] << endl;
+    cout << m_items_sold[i].pName << endl;
   
   return;
 }
@@ -63,7 +61,8 @@ void Business::sell_stuff()
 {
   //assigns an item for each customer in the business to purchase
   //Uses the buy_something customer function.
-  
+  product item;
+  bool buy;
   for(int i = 0; i < m_num_cust; i++)
   {
   
@@ -81,18 +80,17 @@ void Business::sell_stuff()
        // ****** Creates errors until products are declared *****
       //Still need next two lines. Need product declaration
       //from lists first.s
-
-/*      if(m_cust_objects[i].buy_something())
+      item = getProducts();
+      if(m_cust_objects[i].buy_something(item))
       {
-        m_cust_objects[i].changeMoney(-Product.pPrice);
-        add_to_register(Product.pPrice);   //still need
-      }*/
-      
-  }  
+        m_cust_objects[i].changeMoney(-m_items_sold[m_items_ammnt].pPrice);
+        add_to_register(m_items_sold[m_items_ammnt].pPrice);   
+      }  
+  }
   return;
 }
 
-int Business::getProducts()
+product Business::getProducts()
 {
   return m_items_sold[rand()%10]; //10 needs to be changed
 }
