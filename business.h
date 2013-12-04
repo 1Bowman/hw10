@@ -14,8 +14,11 @@
 #include "product.h"
 
 using namespace std;
-const int MAX_CUST = 20;
+const int MAX_CUST = 10;
+const int MAX_LIST = 20;
 const int MAX_ITEMS = 10;
+const int MOE = false;
+const int COMIC = true;
 
 class Business
 {
@@ -31,7 +34,7 @@ class Business
   public:
     //Pre: n/a
     //Post: Sets name to empty, and register money, amount of items, and
-    //      number of customers to zero
+    // number of customers to zero
     //Description: default constructor for the business class
     Business();
     
@@ -53,7 +56,7 @@ class Business
     //Post: places a customer in the customer array and increases the ammount
     // of customers by 1
     //Function: puts customers in the business
-    void addCustomer(Customer custName);
+    void addCustomers();
     
     //Pre: must be ran by a business
     //Post: if the user has more than $40, then a random object is set to the
@@ -61,15 +64,15 @@ class Business
     //Function: assigns a random item to people with more than $40
     // void make_a_sale();
 
-    //Pre:
-    //Post:
+    //Pre: things to sell.
+    //Post: Sells items to customers.
     //Function: Walks down array, sees if customers are going to buy something
     //and invokes the buy_something() function, if they do buy something, the 
     //product and money will be transfered
     void sell_stuff();
 
-    //Pre:
-    //Post:
+    //Pre: n/a
+    //Post: Customers leave the business to interact.
     //Function: Copies array of customers in the business to the array of 
     //customers in this function.
     void customers_leave();

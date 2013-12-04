@@ -43,33 +43,36 @@ class Customer
     //Function:
     Customer(float money, string name);
     
-    //Pre:
-    //Post:
-    //Function:
-    bool buy_something(product item);
-
-    //Pre: must take in an item purchased from 'items.txt'
-    //Post: if spending money is more than $40, then it sets the defined 
+    //Pre:must take in an item purchased from the called file.
+    //Post:if spending money is more than $40, then it sets the defined 
     //value of 'itemPurchased' to a value in the purchased item array
-    //Function: sets the array of m_purchases to a value from 'items.txt'
+    //Function:sets the array of m_purchases to a value from the file
     // if the user has enough money
-    //bool purchase(string itemPurchased);
+    bool buy_something(product item);
     
-    //Pre:
-    //Post:
-    //Function:
+    
+    //Pre: n/a
+    //Post: throws an item
+    //Function: Enables user to throw an item at another user.
     bool throws();
+
+
+    //Pre: n/a
+    //Post: robs a player
+    //Function: If able to, this allows the user to rob another player.
+    bool robs();
     
-    //Pre:
-    //post:
-    //Function:
-    bool changeSat();
+    
+    //Pre: needs a valid int for mood.
+    //post: changes mood
+    //Function: Adds the mood passed in to the satisfaction
+    void changeSat(int mood);
 
-    //Pre:
-    //Post:
-    //Function:
-    void rob();
-
+    //Pre: n/a
+    //Post: sets getSat to m_satisfaction.
+    //Function: accessor for m_satisfaction.
+    bool getSat() const {return m_satisfaction;}
+    
     //Pre: n/a
     //Post: sets getMoney to m_spending_money
     //Function: accessor for spending_money
@@ -79,15 +82,33 @@ class Customer
     //Post:  sets getName to m_cust_name
     //Function: accessor for customer name
     string getName() const {return m_cust_name;}
+    
+    //Pre: n/a
+    //Post: sets getAmnt to m_purchase_amount
+    //Function: accessor for m_purchase_amount
+    short getAmnt() const {return m_purchase_amount;}
+    
+    //Pre: n/a
+    //Post: sets getpName to m_product[j].pName
+    //Function: accessor for m_product[j].pName
+    string getpName(int j) const {return m_product[j].pName;}
+    
+    void changeInc(bool tf);
+    
+    //Pre: n/a
+    //Post: sets getInc to m_inclination
+    //Function: accessor for m_inclination
+    bool getInc() const {return m_inclination;}
   
     //Pre: an integer value of money must be passed in
     //Post: returns an added amount of money to m_spending_money
     //Function:  adds whatever is passed into the function to m_spending_money
     void changeMoney(const int money);
     
-    //Pre:
-    //Post:
-    //Function:
+    
+    //Pre: Needs to have a declared Customer class with the used member vars.
+    //Post: outputs the customer attributes.
+    //Function: Enables the output of a customer class.
     friend ostream &operator <<(ostream & out, Customer & s);
 
     //Pre: must be initialized by a value of customer

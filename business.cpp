@@ -17,7 +17,6 @@ Business::Business() //Default constructor
 Business::Business(const string bName, const float regMoney, ifstream & fin)
 {
   
-  int count = 1;
   int price;
   string name;
   m_business_name = bName;
@@ -37,25 +36,24 @@ Business::Business(const string bName, const float regMoney, ifstream & fin)
 
 void Business::printBiz()
 {
+  cout << endl;
   cout << m_business_name << "\n------------------" << endl;
   
   cout << "Customers\n---------" << endl;
   for(int i = 0; i < m_num_cust; i++)
-    cout << m_cust_objects[i].m_cust_name << " has $"
-    << m_cust_objects[i].m_spending_money << " with Happiness "
-    << m_cust_objects[i].m_satisfaction;
-    if(m_cust_objects[i].m_purchase_amount > 0)
+  {
+    cout << m_cust_objects[i].getName() << " has $"
+    << m_cust_objects[i].getMoney() << " with Happiness "
+    << m_cust_objects[i].getSat();
+    if(m_cust_objects[i].getAmnt() > 0)
     {
       cout << " and has a ";
-      for(int j = 0; j < m_cust_objects[i].m_purchase_amount; j++)
+      for(int j = 0; j < m_cust_objects[i].getAmnt(); j++)
       {
-        cout << m_cust_objects[i].m_product[j] << ",";
+        cout << m_cust_objects[i].getpName(j) << ",";
       }
     }
-  
-  //cout << endl << "Items on the shelf\n------------------" << endl;
-  //for(int i = 0; i < m_items_ammnt; i++)
-  // cout << m_items_sold[i].pName << endl;
+  }
   
   return;
 }
@@ -65,20 +63,27 @@ void Business::customers_leave()
 
 }
 
-void Business::addCustomer(Customer custName)
+void Business::addCustomers()
 {
+  string name;
+  static int isb1 = false;
   for(int i=0; i < MAX_CUST; i++)
   {
-  ifstream fin;
-  string name;
-  int num;
-  fin.open("people.txt");
-  m_cust_objects[m_num_cust] = name; //implement calling object
-  getline(fin, name, ',');
-  fin >> num;
-  
-  m_num_cust++;
+    if(m_cust_objects[i].getInc() == isb1)
+    {  
+      m_cust_objects[m_num_cust].getName() = name;
+      m_num_cust++;
+    }
   }
+  for(int i=0; i < MAX_CUST; i++)
+  {
+    if(m_cust_objects[i].getInc() != isb1)
+    {  
+      m_cust_objects[m_num_cust].getName() = name;
+      m_num_cust++;
+    }
+  }
+  isb1 = false;
   return;
 }
 
@@ -87,24 +92,8 @@ void Business::sell_stuff()
   //assigns an item for each customer in the business to purchase
   //Uses the buy_something customer function.
   product item;
-  bool buy;
   for(int i = 0; i < m_num_cust; i++)
   {
-  
-    
-               //****Took out these*****
-    //randItem = rand()%7;   Put in buy_something() function
-    //if(m_cust_objects[i].purchase(m_items_sold[randItem]))
-    //***** Changed to this if statement *******
-    //***** instead of changing customers money which is done with the 
-    //buy_something() function. I added a mutator to add to the register.
-      
-      
-      
-      
-       // ****** Creates errors until products are declared *****
-      //Still need next two lines. Need product declaration
-      //from lists first.s
       item = getProducts();
       if(m_cust_objects[i].buy_something(item))
       {
